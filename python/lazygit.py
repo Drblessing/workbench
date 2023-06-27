@@ -118,9 +118,9 @@ class LazyGit:
         """Commit with funny message"""
         commit_message = self.get_commit_message()
         # Make some terminal whitepsace and print commit message
-        print("\n" * 2)
+        print("\n" * 1)
         self.print_rainbow_text(commit_message)
-        print("\n" * 2)
+        print("\n" * 1)
         LazyGit.run_command(["git", "commit", "-m", commit_message])
 
     # 5. Push to remote
