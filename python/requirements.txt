@@ -1,3 +1,7 @@
 ipykernel
+numpy
 pip-chill
 pyperclip
+requests
+sentencepiece
+virtualenv

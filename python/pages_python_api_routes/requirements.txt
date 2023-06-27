@@ -1,0 +1,16 @@
+email-validator
+fastapi
+httptools
+httpx
+itsdangerous
+jinja2
+orjson
+pip-chill
+python-dotenv
+python-multipart
+pyyaml
+ujson
+uvicorn
+uvloop
+watchfiles
+websockets
