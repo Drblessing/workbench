@@ -118,6 +118,7 @@ class LazyGit:
         """Commit with funny message"""
         commit_message = self.get_commit_message()
         # Make some terminal whitepsace and print commit message
+        # Print one line of whitepsace
         print("\n" * 1)
         self.print_rainbow_text(commit_message)
         print("\n" * 1)
