@@ -53,7 +53,6 @@ class LazyGit:
             "--message",
             type=str,
             help="Override Commit message with custom message",
-            default=LazyGit.DEFAULT_COMMIT_MESSAGE,
         )
 
         parser.add_argument(
@@ -132,6 +131,7 @@ class LazyGit:
     # 6. Run all commands
     def run_all_commands(self):
         """Run all commands"""
+        self.print_rainbow_text("Lazy Git")
         self.pull_from_remote()
         self.add_all_files_to_staging()
         self.commit_with_funny_message()
