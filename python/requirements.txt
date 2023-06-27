@@ -1,7 +1,9 @@
 ipykernel
 numpy
 pip-chill
+pyfiglet
 pyperclip
 requests
 sentencepiece
+termcolor
 virtualenv

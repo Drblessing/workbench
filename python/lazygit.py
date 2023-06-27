@@ -13,7 +13,7 @@ import subprocess
 import requests
 import sys
 import argparse
-import os
+from termcolor import colored
 
 
 class LazyGit:
@@ -23,8 +23,27 @@ class LazyGit:
     COMMIT_MESSAGES_FALLBACK = "https://raw.githubusercontent.com/ngerakines/commitment/main/commit_messages.txt"
     DEFAULT_COMMIT_MESSAGE = "Lazy Git Commit"
 
+    def __init__(self, commit_message: str | None = None):
+        args = self.parse_args()
+        self.override_commit_message = args.message
+
     @staticmethod
-    def parse_args():
+    def print_rainbow_text(text: str) -> None:
+        """Return text in rainbow colors"""
+        colors = ["red", "yellow", "green", "cyan", "blue", "magenta"]
+        rainbow_text_str = ""
+
+        for i in range(len(text)):
+            # Choose the next color in the colors list
+            color = colors[i % len(colors)]
+            # Colorize the next character
+            rainbow_text_str += colored(text[i], color)
+        print("-" * 100)
+        print(rainbow_text_str)
+        print("-" * 100)
+        return
+
+    def parse_args(self):
         """Parse arguments"""
         parser = argparse.ArgumentParser(
             description="A python script that runs `git add .`, `git commit -m <random funny git message>`, and `git push` in one command. Useful for quickly committing changes to a repo."
@@ -33,7 +52,7 @@ class LazyGit:
             "-m",
             "--message",
             type=str,
-            help="Commit message",
+            help="Override Commit message with custom message",
             default=LazyGit.DEFAULT_COMMIT_MESSAGE,
         )
 
@@ -46,9 +65,6 @@ class LazyGit:
         )
 
         args = parser.parse_args()
-
-        if args.message:
-            LazyGit.DEFAULT_COMMIT_MESSAGE = args.message
 
         return args
 
@@ -67,22 +83,20 @@ class LazyGit:
         except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError):
             return
 
-    @classmethod
-    def get_commit_message(cls) -> str:
+    def get_commit_message(self) -> str:
         """Get commit message"""
         commit_message = (
-            cls.get_commit_message_from_url()
-            or cls.get_commit_message_from_url(cls.COMMIT_MESSAGES_FALLBACK)
-            or cls.DEFAULT_COMMIT_MESSAGE
+            self.override_commit_message
+            or self.get_commit_message_from_url()
+            or self.get_commit_message_from_url(self.COMMIT_MESSAGES_FALLBACK)
+            or self.DEFAULT_COMMIT_MESSAGE
         )
         return commit_message
 
     # 2. Pull from remote to make sure we're up to date
     @staticmethod
-    def run_command(command: list[str], working_directory: str | None = None):
+    def run_command(command: list[str]):
         """Run a command and handle errors"""
-        if working_directory:
-            os.chdir(working_directory)
         try:
             subprocess.check_call(command)
         except subprocess.CalledProcessError as e:
@@ -103,11 +117,10 @@ class LazyGit:
         LazyGit.run_command(["git", "add", "."])
 
     # 4. Commit with funny message
-    @classmethod
-    def commit_with_funny_message(cls):
+    def commit_with_funny_message(self):
         """Commit with funny message"""
-        commit_message = cls.get_commit_message()
-        print(f"Commit message: {commit_message}")
+        commit_message = self.get_commit_message()
+        self.print_rainbow_text(commit_message)
         LazyGit.run_command(["git", "commit", "-m", commit_message])
 
     # 5. Push to remote
@@ -117,16 +130,15 @@ class LazyGit:
         LazyGit.run_command(["git", "push"])
 
     # 6. Run all commands
-    @classmethod
-    def run_all_commands(cls):
+    def run_all_commands(self):
         """Run all commands"""
-        cls.pull_from_remote()
-        cls.add_all_files_to_staging()
-        cls.commit_with_funny_message()
-        cls.push_to_remote()
+        self.pull_from_remote()
+        self.add_all_files_to_staging()
+        self.commit_with_funny_message()
+        self.push_to_remote()
         print("Done!")
 
 
 if __name__ == "__main__":
-    LazyGit.parse_args()
-    LazyGit.run_all_commands()
+    lazygit = LazyGit()
+    lazygit.run_all_commands()
