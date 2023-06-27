@@ -13,6 +13,7 @@ import subprocess
 import requests
 import sys
 import argparse
+import os
 
 
 class LazyGit:
@@ -78,8 +79,10 @@ class LazyGit:
 
     # 2. Pull from remote to make sure we're up to date
     @staticmethod
-    def run_command(command: list[str]):
+    def run_command(command: list[str], working_directory: str | None = None):
         """Run a command and handle errors"""
+        if working_directory:
+            os.chdir(working_directory)
         try:
             subprocess.check_call(command)
         except subprocess.CalledProcessError as e:
@@ -104,6 +107,7 @@ class LazyGit:
     def commit_with_funny_message(cls):
         """Commit with funny message"""
         commit_message = cls.get_commit_message()
+        print(f"Commit message: {commit_message}")
         LazyGit.run_command(["git", "commit", "-m", commit_message])
 
     # 5. Push to remote
