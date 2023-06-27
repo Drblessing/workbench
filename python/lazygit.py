@@ -38,9 +38,7 @@ class LazyGit:
             color = colors[i % len(colors)]
             # Colorize the next character
             rainbow_text_str += colored(text[i], color)
-        # print("-" * 100)
         print(rainbow_text_str)
-        # print("-" * 100)
         return
 
     def parse_args(self):
