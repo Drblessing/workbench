@@ -124,5 +124,5 @@ class LazyGit:
 
 
 if __name__ == "__main__":
-    args = LazyGit.parse_args()
+    LazyGit.parse_args()
     LazyGit.run_all_commands()
