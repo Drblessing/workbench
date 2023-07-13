@@ -1,0 +1,36 @@
+Device: mps, Batch size: 50, Time: 19.81s, Accuracy: 66.0%, Epochs: 5
+
+Device: mps, Batch size: 100, Time: 15.12s, Accuracy: 63.0%, Epochs: 5
+
+Device: mps, Batch size: 150, Time: 12.71s, Accuracy: 52.3%, Epochs: 5
+
+Device: mps, Batch size: 200, Time: 11.07s, Accuracy: 57.9%, Epochs: 5
+
+Device: cpu, Batch size: 50, Time: 15.69s, Accuracy: 66.6%, Epochs: 5
+
+Device: cpu, Batch size: 100, Time: 12.91s, Accuracy: 60.7%, Epochs: 5
+
+Device: cpu, Batch size: 150, Time: 11.55s, Accuracy: 55.8%, Epochs: 5
+
+Device: cpu, Batch size: 200, Time: 11.17s, Accuracy: 56.0%, Epochs: 5
+
+Device: mps, Batch size: 100, Time: 29.71s, Accuracy: 65.9%, Epochs: 10
+
+Device: mps, Batch size: 200, Time: 20.70s, Accuracy: 61.7%, Epochs: 10
+
+Device: mps, Batch size: 500, Time: 17.08s, Accuracy: 56.1%, Epochs: 10
+
+Device: mps, Batch size: 1000, Time: 16.08s, Accuracy: 43.2%, Epochs: 10
+
+Device: cpu, Batch size: 100, Time: 24.61s, Accuracy: 66.2%, Epochs: 10
+
+Device: cpu, Batch size: 200, Time: 21.22s, Accuracy: 61.4%, Epochs: 10
+
+Device: cpu, Batch size: 500, Time: 18.24s, Accuracy: 42.3%, Epochs: 10
+
+Device: cpu, Batch size: 1000, Time: 17.84s, Accuracy: 40.8%, Epochs: 10
+
+Device: mps, Batch size: 200, Time: 42.76s, Accuracy: 66.0%, Epochs: 20
+
+Device: cpu, Batch size: 200, Time: 43.35s, Accuracy: 66.1%, Epochs: 20
+
