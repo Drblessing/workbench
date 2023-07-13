@@ -34,3 +34,11 @@ Device: mps, Batch size: 200, Time: 42.76s, Accuracy: 66.0%, Epochs: 20
 
 Device: cpu, Batch size: 200, Time: 43.35s, Accuracy: 66.1%, Epochs: 20
 
+Device: mps, Batch size: 200, Time: 37.27s, Accuracy: 64.8%, Epochs: 15
+
+Device: cpu, Batch size: 200, Time: 35.05s, Accuracy: 64.6%, Epochs: 15
+
+Device: mps, Batch size: 200, Time: 48.32s, Accuracy: 74.5%, Epochs: 15
+
+Device: cpu, Batch size: 200, Time: 47.48s, Accuracy: 74.9%, Epochs: 15
+
