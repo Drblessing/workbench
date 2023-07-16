@@ -18,6 +18,8 @@ downloads/
 eggs/
 .eggs/
 pytorch/data
+pytorch/models
+pytorch/logs
 lib/
 lib64/
 parts/
