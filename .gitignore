@@ -21,6 +21,7 @@ pytorch/data
 pytorch/models
 pytorch/logs
 pytorch/.captum_venv
+pytorch/kaggle/input
 lib/
 lib64/
 parts/
