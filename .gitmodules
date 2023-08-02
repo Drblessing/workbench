@@ -1,0 +1,3 @@
+[submodule "smart contracts/lib/v2-periphery"]
+	path = smart contracts/lib/v2-periphery
+	url = https://github.com/Uniswap/v2-periphery
