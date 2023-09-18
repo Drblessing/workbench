@@ -18,5 +18,21 @@ class AudioHelper:
     Handles mp3 and ogg files.
     """
 
-    def __init__(self, path):
-        self._path = path
+    def __init__(self, path: str):
+        self.path = path
+
+    @property
+    def path(self) -> Path:
+        return self._path
+
+    @path.setter
+    def path(self, path: str):
+        self._path = Path(path)
+        print("Path seter.")
+
+
+if __name__ == "__main__":
+    print("Beginning audio helper...")
+    a = AudioHelper("hey")
+    print("Done.")
+    print(a.path)
