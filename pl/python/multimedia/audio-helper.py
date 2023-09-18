@@ -292,4 +292,4 @@ def setup_logging():
 
 if __name__ == "__main__":
     setup_logging()
-    a = AudioHelper("/Users/dbless/Downloads/asdfv80z")
+    a = AudioHelper("/Users/dbless/Downloads/asdf")
