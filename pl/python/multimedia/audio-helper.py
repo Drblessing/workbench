@@ -145,7 +145,7 @@ class AudioHelper:
             logging.info(f"Converted song: {song_title} - {song_artist} - {song_album}")
 
             # Create new file names.
-            new_ogg_filename = ogg_file.name.split("-")[-1].strip()
+            new_ogg_filename = song_title + ".ogg"
             new_mp3_filename = new_ogg_filename.replace(".ogg", ".mp3")
             # Rename the files.
             ogg_file.rename(self.path / new_ogg_filename)
@@ -292,4 +292,4 @@ def setup_logging():
 
 if __name__ == "__main__":
     setup_logging()
-    a = AudioHelper("/Users/dbless/Downloads/asdf")
+    a = AudioHelper("")
