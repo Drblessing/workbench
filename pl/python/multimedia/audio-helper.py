@@ -106,6 +106,7 @@ class AudioHelper:
             mp3_metadata["artist"] = song_artist
             mp3_metadata["album"] = song_album
             mp3_metadata["tracknumber"] = song_track_number
+            # TODO Genere
             mp3_metadata.save()
 
             # Set mp3 album art, with file AlbumArt.jpg
