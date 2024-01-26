@@ -1,11 +1,33 @@
 import requests
 from bs4 import BeautifulSoup
+from urllib.parse import urlparse
+
 
 # Turn this into a class and use OOP to make it more modular
-class HeadlineScraper: 
+class HeadlineScraper:
     def __init__(self, url="https://news.ycombinator.com/"):
-        # Check if url 
-        self.url = url
+        # Check if url is valid
+        if not self.is_valid_url(url):
+            raise ValueError("Invalid URL")
+        
+
+    @staticmethod
+    def is_valid_url(url: str) -> bool:
+        """Check if url is valid."""
+        parsed_url = urlparse(url)
+        # Check for http or https
+        if parsed_url.scheme not in ["http", "https"]:
+            return False
+
+        # Check for domain name
+        if not parsed_url.netloc or "." not in parsed_url.netloc:
+            return False
+
+        return True
+
+
+if __name__ == "__main__":
+    HeadlineScraper("https://newsasdfasdfcom")
 
 
 # # Replace the URL below with the website you want to scrape
