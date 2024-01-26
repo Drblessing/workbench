@@ -2,20 +2,70 @@
 <html>
   <head>
     <title>ToDo List</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      th {
+        background-color: #000000;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      tr:hover {
+        background-color: #ddd;
+      }
+      form input,
+      form select {
+        margin-bottom: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: #000000; /* change to any color you prefer */
+      }
+    </style>
   </head>
   <body>
     <h1>ToDo List</h1>
     <form method="POST" action="/">
-      <input type="text" name="content" id="content" />
+      Task: <input type="text" name="content" id="content" required /><br />
+      Email: <input type="email" name="email" id="email" required /><br />
+      Priority:
+      <select name="priority" id="priority" required>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option></select
+      ><br />
       <input type="submit" value="Add Task" />
     </form>
-    <ul>
-      {% for task in tasks %}
-      <li>
-        {{ task }}
-        <a href="{{ url_for('delete', task_id=loop.index0) }}">Delete</a>
-      </li>
-      {% endfor %}
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Email</th>
+          <th>Priority</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks %}
+        <tr>
+          <td>{{ task.task }}</td>
+          <td>{{ task.email }}</td>
+          <td>{{ task.priority }}</td>
+          <td>
+            <a href="{{ url_for('delete', task_id=loop.index0) }}">✅</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </body>
 </html>
