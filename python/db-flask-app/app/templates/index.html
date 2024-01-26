@@ -1,18 +1,69 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  th {
+    background-color: #4caf50;
+    color: white;
+  }
+</style>
+<form method="POST">
+  <input type="text" name="task" placeholder="Enter task here" required />
+  <input type="email" name="email" placeholder="Enter email here" required />
+  <select name="priority" required>
+    <option value="">Select priority</option>
+    <option value="Low">Low</option>
+    <option value="Medium">Medium</option>
+    <option value="High">High</option>
+  </select>
+  <input type="submit" value="Add Task" />
+</form>
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  th {
+    background-color: #0d4e0d;
+    color: white;
+  }
+</style>
+<br />
 
-{% block content %}
-  <h1>Todo List</h1>
-  <form method="POST">
-    <input type="text" name="task" placeholder="Enter task here" required>
-    <input type="submit" value="Add Task">
-  </form>
-  <ul>
-    {% for task in tasks %}
-      <li>
-        {{ task.description }}
-        <a href="{{ url_for('update_task', id=task.id) }}">Update</a>
-        <a href="{{ url_for('delete_task', id=task.id) }}">Delete</a>
-      </li>
-    {% endfor %}
-  </ul>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Task</th>
+    <th>Email</th>
+    <th>Priority</th>
+  </tr>
+  {% for task in tasks %}
+  <tr>
+    <td>{{ task.id }}</td>
+    <td>{{ task.task }}</td>
+    <td>{{ task.email }}</td>
+    <td>{{ task.priority }}</td>
+  </tr>
+  {% endfor %}
+</table>
 {% endblock %}
