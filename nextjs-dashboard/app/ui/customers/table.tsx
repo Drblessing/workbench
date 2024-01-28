@@ -1,5 +1,5 @@
 import Image from 'next/image';
-//ignore the next line
+// ignore the next line
 
 import { lusitana } from '@/app/ui/fonts';
 import Search from '@/app/ui/search';
