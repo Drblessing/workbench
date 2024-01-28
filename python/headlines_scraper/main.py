@@ -90,8 +90,6 @@ class HeadlineScraper:
 
     def save_headlines(self, headlines: list[str]):
         """Save headlines."""
-        # Make logs directory if it doesn't exist
-        Path("logs").mkdir(parents=True, exist_ok=True)
 
         # Add href to headlines
         headlines = [
@@ -99,7 +97,14 @@ class HeadlineScraper:
         ]
 
         # Save headlines to a file
-        with open("logs/headlines.txt", "w") as f:
+        cur_module = Path(__file__)
+
+        # Make sure the logs directory exists
+        (cur_module.parent / "logs").mkdir(parents=True, exist_ok=True)
+
+        output_file = cur_module.parent / "logs" / "headlines.txt"
+
+        with open(output_file, "w") as f:
             f.write("\n".join(headlines))
 
 
