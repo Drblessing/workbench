@@ -3,7 +3,9 @@ librosa
 matplotlib
 pandas
 pip-chill
+portalocker
 pyarrow
 resampy
 torchaudio
+torchtext
 torchvision
