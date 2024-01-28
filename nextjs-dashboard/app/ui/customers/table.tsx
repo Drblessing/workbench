@@ -3,6 +3,8 @@ import Image from 'next/image';
 
 import { lusitana } from '@/app/ui/fonts';
 import Search from '@/app/ui/search';
+// skip ts check for next line
+// @ts-ignore
 import {
   CustomersTableType,
   FormattedCustomersTable,
