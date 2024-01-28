@@ -15,6 +15,7 @@ Example usage:
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
+from utils.log_manager import get_logger, init_logger
 
 
 # Turn this into a class and use OOP to make it more modular
@@ -78,11 +79,19 @@ class HeadlineScraper:
 
         self.headlines = headlines_text
 
-    def print_headlines(self, headlines: list[str]):  
+    def print_headlines(self, headlines: list[str]):
         """Print headlines."""
         for headline in headlines:
             print(headline)
 
 
-if __name__ == "__main__":
+def main():
+    """Run the scraper."""
+    init_logger(__file__)
+    logger = get_logger()
+    logger.info("Starting scraper.")
     HeadlineScraper("https://news.ycombinator.com/")
+
+
+if __name__ == "__main__":
+    main()
