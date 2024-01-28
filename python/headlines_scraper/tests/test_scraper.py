@@ -16,7 +16,7 @@ def test_init():
     with requests_mock.Mocker() as m:
         m.get(
             "https://news.ycombinator.com/",
-            text="<html><span class='titleline'><a>Headline 1</a></span></html>",
+            text="<html><span class='titleline'><a href='https://stuff.com'>Headline 1</a></span></html>",
         )
         scraper = HeadlineScraper("https://news.ycombinator.com/")
         assert scraper.url == "https://news.ycombinator.com/"
@@ -33,7 +33,7 @@ def test_get_headlines():
     with requests_mock.Mocker() as m:
         m.get(
             "https://news.ycombinator.com/",
-            text="<html><span class='titleline'><a>Headline 1</a></span></html>",
+            text="<html><span class='titleline'><a href='https://stuff.com'>Headline 1</a></span></html>",
         )
         scraper = HeadlineScraper("https://news.ycombinator.com/")
         assert scraper.headlines == ["Headline 1"]
@@ -52,7 +52,7 @@ def test_other_website_multiple_headlines():
     with requests_mock.Mocker() as m:
         m.get(
             "http://important-news.com",
-            text="<html><span class='titleline'><a>Headline 1</a><a>Subheadline1 </a></span><span class='titleline'><a>Headline 2</a></span></html>",
+            text="<html><span class='titleline'><a href='https://stuff.com'>Headline 1</a><a>Subheadline1 </a></span><span class='titleline'><a href='https://stuff.com'>Headline 2</a></span></html>",
         )
         scraper = HeadlineScraper("http://important-news.com")
         assert scraper.headlines == ["Headline 1", "Headline 2"]
