@@ -18,9 +18,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-pytorch/data
-pytorch/models
-pytorch/logs
+data/
 logs/
 pytorch/.captum_venv
 pytorch/kaggle/input
