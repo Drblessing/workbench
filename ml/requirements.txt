@@ -1,7 +1,9 @@
 ipykernel
+librosa
 matplotlib
 pandas
 pip-chill
+pyarrow
+resampy
 torchaudio
 torchvision
-torch
