@@ -21,6 +21,7 @@ eggs/
 pytorch/data
 pytorch/models
 pytorch/logs
+logs/
 pytorch/.captum_venv
 pytorch/kaggle/input
 lib/
