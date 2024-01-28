@@ -16,6 +16,7 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 from utils.log_manager import get_logger, init_logger
+from pathlib import Path
 
 
 # Turn this into a class and use OOP to make it more modular
@@ -27,14 +28,15 @@ class HeadlineScraper:
         self.url = url
 
         # Send a request to the website
+        get_logger().info(f"Sending request to {url}")
         response = requests.get(url)
         response.raise_for_status()
 
         # Get headlines
         self.get_headlines(response)
 
-        # Print headlines
-        self.print_headlines(self.headlines)
+        # Save headlines
+        self.save_headlines(self.headlines)
 
     @staticmethod
     def is_valid_url(url: str) -> bool:
@@ -51,7 +53,7 @@ class HeadlineScraper:
         return True
 
     def get_headlines(self, response: requests.Response):
-        """Get headlines from url.
+        """Get headlines from url, and save text and url.
 
         The expected structure of the html is:
         <html>
@@ -73,16 +75,32 @@ class HeadlineScraper:
             headline.a.get_text() if headline.a else "" for headline in headlines
         ]
 
+        headlines_href = [
+            headline.a["href"] if headline.a else "" for headline in headlines
+        ]
+
+        self.headlines_href = headlines_href
+
         # Check if headlines are empty
         if not headlines_text:
             raise ValueError("No headlines found")
 
         self.headlines = headlines_text
+        get_logger().info(f"Found {len(self.headlines)} headlines.")
 
-    def print_headlines(self, headlines: list[str]):
-        """Print headlines."""
-        for headline in headlines:
-            print(headline)
+    def save_headlines(self, headlines: list[str]):
+        """Save headlines."""
+        # Make logs directory if it doesn't exist
+        Path("logs").mkdir(parents=True, exist_ok=True)
+
+        # Add href to headlines
+        headlines = [
+            f"{headline}" for headline, href in zip(headlines, self.headlines_href)
+        ]
+
+        # Save headlines to a file
+        with open("logs/headlines.txt", "w") as f:
+            f.write("\n".join(headlines))
 
 
 def main():

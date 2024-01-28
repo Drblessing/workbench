@@ -1,6 +1,6 @@
 import pytest
 import requests_mock
-from headliens- import HeadlineScraper
+from main import HeadlineScraper
 
 
 def test_is_valid_url():
