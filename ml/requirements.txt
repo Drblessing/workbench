@@ -1,3 +1,6 @@
+ipykernel
+matplotlib
+pandas
 pip-chill
 torchaudio
 torchvision
