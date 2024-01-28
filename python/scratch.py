@@ -15,3 +15,6 @@ logging.basicConfig(
 )
 
 logging.critical("The nuclear reactor is about to explode!")
+
+
+print(type(__file__))
