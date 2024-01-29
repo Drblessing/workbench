@@ -14,7 +14,8 @@ def cleanup(request):
         print(output_file)
         output_file.unlink(missing_ok=True)
 
-    request.addfinalizer(remove_file)
+    yield
+    remove_file()
 
 
 def test_is_valid_url():
