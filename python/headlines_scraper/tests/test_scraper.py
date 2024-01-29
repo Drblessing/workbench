@@ -1,6 +1,20 @@
 import pytest
 import requests_mock
 from main import HeadlineScraper
+from pathlib import Path
+
+
+@pytest.fixture(scope="session", autouse=True)
+def cleanup(request):
+    """Cleanup logs/headlines.txt after test session is complete."""
+
+    def remove_file():
+        cur_module = Path(__file__)
+        output_file = cur_module.parent.parent / "logs" / "headlines.txt"
+        print(output_file)
+        output_file.unlink(missing_ok=True)
+
+    request.addfinalizer(remove_file)
 
 
 def test_is_valid_url():
