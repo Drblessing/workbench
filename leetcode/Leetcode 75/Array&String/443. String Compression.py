@@ -1,5 +1,5 @@
 class Solution:
-    def compress(self, chars: List[str]) -> int:
+    def compress(self, chars: list[str]) -> int:
         """Compresses a string in-place.
         Replace groups of characters with a character and a count.
         Keep single characters as-is.
@@ -13,7 +13,7 @@ class Solution:
         # Iterate through chars.
         # Two pointers: i is the start of a group, j is the end of a group.
         i, j = 0, 0
-        while i < len(chars):
+        while i <= len(chars) - 1:
             # Get the character at i.
             char = chars[i]
             # Find the end of the group.
@@ -42,3 +42,17 @@ class Solution:
 
         # Return the length of the answer.
         return len(s)
+
+
+if __name__ == "__main__":
+    s = Solution()
+
+    # Example 1
+    chars = ["a", "a", "c"]
+    assert s.compress(chars) == 6
+    assert chars == ["a", "2", "b", "2", "c", "3"]
+
+    # Example 2
+    chars = ["a"]
+    assert s.compress(chars) == 1
+    assert chars == ["a"]
