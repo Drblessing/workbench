@@ -23,7 +23,7 @@ def test_is_valid_url():
     assert HeadlineScraper.is_valid_url("https://news.ycombinator.com/") == True
     assert HeadlineScraper.is_valid_url("http://example.com/") == True
     assert HeadlineScraper.is_valid_url("ftp://example.com/") == False
-    assert HeadlineScraper.is_valid_url("example.com") == False
+    assert HeadlineScraper.is_valid_url("examsple.com") == False
 
 
 def test_init():
