@@ -21,3 +21,15 @@ class Solution:
             max_ones = max(max_ones, right - left + 1)
 
         return max_ones
+
+
+if __name__ == "__main__":
+    # Create a random binary list 10^5 elements long
+    import random
+
+    test_case = [random.randint(0, 1) for _ in range(10**5)]
+
+    ans = Solution().longestOnes(test_case, 1000000)
+
+    print(len(test_case))
+    print(ans)
