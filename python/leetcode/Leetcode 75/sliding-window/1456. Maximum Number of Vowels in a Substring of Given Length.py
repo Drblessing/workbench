@@ -3,20 +3,20 @@ class Solution:
         """Calculate the maximum number of vowels in
         any length k substring of s."""
 
-        vowels = ["a", "e", "i", "o", "u"]
+        vowels = "aeiou"
 
         cur_v = 0
         for letter in s[:k]:
             if letter in vowels:
                 cur_v += 1
-        max_vowels = cur_v
+        max_v = cur_v
 
         # Iterate through remaining letters
         for i in range(k, len(s)):
             cur_v += (s[i] in vowels) - (s[i - k] in vowels)
-            max_vowels = max(max_vowels, cur_v)
+            max_v = max(max_v, cur_v)
 
-        return max_vowels
+        return max_v
 
 
 if __name__ == "__main__":
