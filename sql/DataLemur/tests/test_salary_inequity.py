@@ -1,5 +1,5 @@
 import pytest
-from py_src.salary_inequity import min_inequity
+from datalemur.py_src.salary_inequity import min_inequity
 
 
 def test_min_inequity():

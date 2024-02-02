@@ -1,5 +1,5 @@
 import pytest
-from py_src.max_subarray_sum import max_subarray_sum
+from datalemur.py_src.max_subarray_sum import max_subarray_sum
 
 
 def test_max_subarray_sum():

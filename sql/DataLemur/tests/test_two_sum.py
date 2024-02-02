@@ -1,5 +1,5 @@
 import pytest
-from py_src.two_sum import two_sum
+from datalemur.py_src.two_sum import two_sum
 
 
 def test_two_sum():

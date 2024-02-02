@@ -1,5 +1,8 @@
 import pytest
-from py_src.contains_duplicate import contains_duplicate
+
+# from py_src.contains_duplicate import contains_duplicate
+# Fix import
+from datalemur.py_src.contains_duplicate import contains_duplicate
 
 
 def test_contains_duplicate():

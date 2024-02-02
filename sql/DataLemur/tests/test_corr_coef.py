@@ -1,5 +1,5 @@
 import pytest
-from py_src.corr_coeff import corr
+from datalemur.py_src.corr_coeff import corr
 
 
 def test_corr():

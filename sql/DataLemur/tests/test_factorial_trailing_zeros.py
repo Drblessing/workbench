@@ -1,6 +1,6 @@
 import pytest
 
-from py_src.factorial_trailing_zeros import trailing_zeroes
+from datalemur.py_src.factorial_trailing_zeros import trailing_zeroes
 
 
 def test_trailing_zeroes():

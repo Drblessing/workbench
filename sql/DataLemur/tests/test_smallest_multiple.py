@@ -1,5 +1,5 @@
 import pytest
-from py_src.smallest_multiple import smallest_multiple
+from datalemur.py_src.smallest_multiple import smallest_multiple
 
 
 def test_smallest_multiple():

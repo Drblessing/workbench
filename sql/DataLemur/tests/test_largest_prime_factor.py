@@ -1,7 +1,5 @@
-# FILEPATH: /Users/dbless/Github/sql/DataLemur/tests/test_largest_prime_factor.py
-
 import pytest
-from py_src.largest_prime_factor import largest_prime_factor
+from datalemur.py_src.largest_prime_factor import largest_prime_factor
 
 
 def test_largest_prime_factor():
