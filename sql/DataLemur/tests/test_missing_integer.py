@@ -1,5 +1,5 @@
 import pytest
-from datalemur.py_src.missing_integer import missing_int
+from ..py_src.missing_integer import missing_int
 
 
 def test_missing_int():
