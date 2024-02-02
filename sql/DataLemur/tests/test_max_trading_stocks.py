@@ -1,6 +1,6 @@
 import pytest
 
-from datalemur.py_src.max_trading_stocks import max_subarray_sum
+from ..py_src.max_trading_stocks import max_subarray_sum
 
 
 def test_max_subarray_sum():

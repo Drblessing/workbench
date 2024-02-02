@@ -1,5 +1,5 @@
 import pytest
-from datalemur.py_src.intersection_of_two_lists import intersection
+from ..py_src.intersection_of_two_lists import intersection
 
 
 def test_intersection():
