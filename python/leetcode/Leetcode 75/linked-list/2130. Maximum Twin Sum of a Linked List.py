@@ -9,38 +9,35 @@ class ListNode:
 
 
 class Solution:
-    def pairSum(self, head: Optional[ListNode]) -> int:
-        """Calcualte the minimum pair sum for twin nodes,
-        using a set to store the values of the nodes,
-        and two pointers to traverse the list.
-        """
-        if not head:
-            return 0
+    def pairSum(self, head):
+        """Calculate the maximum sum of a pair of twin nodes from the linked list."""
+        slow = head
+        fast = head
+        maxVal = 0
 
-        slow = fast = Sentinel = ListNode(0, head)
-
-        # Iterate until fast node reaches the end of the list
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
 
-        # Create a set to store the values of the nodes
-        minSum = float("inf")
-        fast = Sentinel.next
-        slow = slow.next
-
-        # Iterate until slow node reaches the end of the list
+        nextNode, prev = None, None
         while slow:
-            minSum = min(minSum, slow.val + fast.val)
-            slow = slow.next
-            fast = fast.next
+            nextNode = slow.next
+            slow.next = prev
+            prev = slow
+            slow = nextNode
 
-        return minSum
+        slow
+        while prev:
+            maxVal = max(maxVal, head.val + prev.val)
+            prev = prev.next
+            head = head.next
+
+        return maxVal
 
 
 if __name__ == "__main__":
     # [1,2,3,4,5]
-    head = ListNode(1, ListNode(2, ListNode(3, ListNode(4))))
+    head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5, ListNode(6))))))
     s = Solution()
     s.pairSum(head)
     while head:
