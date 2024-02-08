@@ -44,3 +44,5 @@ if __name__ == "__main__":
     while head:
         print(head.val)
         head = head.next
+
+    # That's how you delete the middle node of a linked list
