@@ -15,6 +15,7 @@ class Solution:
 
         def dfs(node: TreeNode, leaves: list[int]) -> list[int]:
             if not node:
+                # Return the leaves list if the node is None
                 return leaves
             if not node.left and not node.right:
                 leaves.append(node.val)
