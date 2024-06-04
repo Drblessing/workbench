@@ -1,0 +1,10 @@
+bs4
+flask-sqlalchemy
+gunicorn
+ipykernel
+pandas
+pip-chill
+pytest
+requests-mock
+scipy
+sympy
