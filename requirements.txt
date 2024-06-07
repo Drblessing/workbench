@@ -2,9 +2,15 @@ bs4
 flask-sqlalchemy
 gunicorn
 ipykernel
+librosa
+matplotlib
 pandas
 pip-chill
+portalocker
+pyarrow
 pytest
 requests-mock
-scipy
-sympy
+resampy
+torchaudio
+torchtext
+torchvision
