@@ -9,14 +9,17 @@ class ElevatorDoor:
     def close(self):
         self.is_open = False
 
+
 # Elevator Button class
 class ElevatorButton:
     def __init__(self, floor):
         self.floor = floor
+        # switch
         self.is_pressed = False
 
     def press(self):
         self.is_pressed = True
+
 
 # Elevator Motor class
 class ElevatorMotor:
@@ -28,6 +31,7 @@ class ElevatorMotor:
 
     def stop(self):
         self.is_running = False
+
 
 # Elevator class composed of Door, Buttons, and Motor
 class Elevator:
@@ -50,6 +54,7 @@ class Elevator:
             print("Elevator arrived at a selected floor.")
         else:
             print("Elevator is idle.")
+
 
 # Let's test the elevator composition
 if __name__ == "__main__":
