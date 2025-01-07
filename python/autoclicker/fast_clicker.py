@@ -1,6 +1,5 @@
 import pyautogui
 import keyboard
-import time
 
 is_clicking = False
 
@@ -14,7 +13,6 @@ def toggle_clicking():
         print("Clicking stopped. Press SPACE again to start.")
 
 
-# Set a hotkey for spacebar to toggle clicking
 keyboard.add_hotkey("space", toggle_clicking)
 
 print("Press SPACE to start clicking...")
@@ -23,7 +21,6 @@ try:
     while True:
         if is_clicking:
             pyautogui.click()
-            # Adjust the speed here; smaller delay = faster clicking
-            time.sleep(0.01)
+            # Removed the sleep to click as fast as Python can handle
 except KeyboardInterrupt:
     print("Exiting script.")
