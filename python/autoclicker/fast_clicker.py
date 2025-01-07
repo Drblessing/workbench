@@ -1,5 +1,6 @@
 import pyautogui
 import keyboard
+import time
 
 is_clicking = False
 
@@ -21,6 +22,7 @@ try:
     while True:
         if is_clicking:
             pyautogui.click()
-            # Removed the sleep to click as fast as Python can handle
+            # Pause the click for 0.01 seconds
+            time.sleep(0.01)
 except KeyboardInterrupt:
     print("Exiting script.")
