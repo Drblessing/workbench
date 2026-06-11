@@ -143,8 +143,8 @@ struct Monster {
 
 struct Player {
     int x = 0, y = 0;
-    int hp = 24, maxhp = 24;
-    int atk = 5;
+    int hp = 32, maxhp = 32;
+    int atk = 7;
     int gold = 0;
     int xp = 0, level = 1, nextXp = 10;
 };
@@ -281,7 +281,7 @@ struct Game {
     }
 
     void spawnItems() {
-        int potions = randi(1, 3);
+        int potions = randi(3, 5);
         int golds   = randi(2, 4);
         auto placeOn = [&](char type, int amount) {
             for (int tries = 0; tries < 50; ++tries) {
@@ -295,7 +295,7 @@ struct Game {
                 }
             }
         };
-        for (int i = 0; i < potions; ++i) placeOn('!', randi(8, 14));
+        for (int i = 0; i < potions; ++i) placeOn('!', randi(12, 18));
         for (int i = 0; i < golds; ++i)   placeOn('$', randi(5, 25));
     }
 

@@ -204,7 +204,9 @@ int main() {
                 b.position.x + std::cos(angle - 2.5f) * size,
                 b.position.y + std::sin(angle - 2.5f) * size,
             };
-            DrawTriangle(tip, left, right, col);
+            // raylib's DrawTriangle culls clockwise-wound triangles, so the
+            // vertices must be given counter-clockwise in screen space.
+            DrawTriangle(tip, right, left, col);
         }
         EndTextureMode();
 
