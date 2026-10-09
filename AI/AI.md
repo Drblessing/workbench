@@ -6,10 +6,9 @@ The goal of software engineering in the AI era is to manage the AI loop with an 
 
 ### Using GPT-6
 
-
-
 https://developers.openai.com/api/docs/guides/latest-model
 
+The new models are much better at following directions. The default of the model is to be a question-asking, professional and detailed response, test making slow and thorough worker. You can modify this behavior with the custom prompts given in the guide: Speak plainly, delegate work, limit tests, and follow-throuhg with best judgement.
 
 ### Building effective agent automations
 
@@ -43,3 +42,15 @@ Then you copy vault ID from claude-lock.json into vault_ids in deployment.md
 
 The agent timestamps runs and stores them in memory. It can also store the last run time in a file.
 
+
+## Unlimited Tokens
+
+The best token deals right now: 
+
+Muse Spark 1.3 Contributor: 48 on artifical analaysis, 81.6 on LiveBench. Use on OpenCode Go. 
+
+Z.ai GLM-5.3 Flash: Almost billions of tokens per week using off-peak hours. 42 on artifical analysis, 71.6 on LiveBench. Use on ZCode.
+
+Opencode Go: Unlimited models temporarily come and go. May get unlimited usage through Zen API.
+
+Featherless: Unlimited tokens with rate limits, may be nice.
